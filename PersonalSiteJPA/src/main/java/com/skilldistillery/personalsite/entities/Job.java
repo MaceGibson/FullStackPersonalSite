@@ -1,6 +1,5 @@
 package com.skilldistillery.personalsite.entities;
 
-import java.util.List;
 import java.util.Objects;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -10,8 +9,9 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.Lob;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Job {
@@ -40,8 +40,9 @@ public class Job {
     private String technologies;
     
     @JsonIgnore
-    @ManyToMany(mappedBy = "jobs")
-    private List<User> users;
+    @ManyToOne
+    @JoinColumn(name="user_id")
+    private User user;
     
     //methods
     
@@ -50,7 +51,7 @@ public class Job {
     }
 
 	public Job(int id, String company, String title, String firstName, String lastName, String email,
-			String phoneNumber, String description, String technologies, List<User> users) {
+			String phoneNumber, String description, String technologies, User user) {
 		super();
 		this.id = id;
 		this.company = company;
@@ -61,7 +62,7 @@ public class Job {
 		this.phoneNumber = phoneNumber;
 		this.description = description;
 		this.technologies = technologies;
-		this.users = users;
+		this.user = user;
 	}
 
 	public int getId() {
@@ -136,12 +137,12 @@ public class Job {
 		this.technologies = technologies;
 	}
 
-	public List<User> getUsers() {
-		return users;
+	public User getUser() {
+		return user;
 	}
 
-	public void setUsers(List<User> users) {
-		this.users = users;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	@Override

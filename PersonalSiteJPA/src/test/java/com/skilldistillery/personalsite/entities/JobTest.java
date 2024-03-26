@@ -56,9 +56,8 @@ class JobTest {
     }
 
      @Test
-     void test_Job_Users_ManyToMany() {
-         assertNotNull(job.getUsers());
-         assertTrue(job.getUsers().size() > 0);
-         assertEquals("MaceDuwin", job.getUsers().get(0).getUsername());
+     void test_Job_User_ManyToOne() {
+         assertNotNull(job.getUser());
+         assertEquals("MaceDuwin", job.getUser().getUsername());
      }
 }

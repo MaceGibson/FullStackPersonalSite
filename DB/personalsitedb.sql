@@ -27,6 +27,8 @@ CREATE TABLE IF NOT EXISTS `user` (
   `first_name` VARCHAR(200) NOT NULL,
   `last_name` VARCHAR(200) NOT NULL,
   `email` VARCHAR(400) NOT NULL,
+  `role` VARCHAR(100) NOT NULL,
+  `enabled` TINYINT NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB;
@@ -47,30 +49,13 @@ CREATE TABLE IF NOT EXISTS `job` (
   `phone_number` VARCHAR(200) NULL,
   `description` TEXT NOT NULL,
   `technologies` VARCHAR(400) NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `user_has_job`
--- -----------------------------------------------------
-DROP TABLE IF EXISTS `user_has_job` ;
-
-CREATE TABLE IF NOT EXISTS `user_has_job` (
   `user_id` INT NOT NULL,
-  `job_id` INT NOT NULL,
-  PRIMARY KEY (`user_id`, `job_id`),
-  INDEX `fk_user_has_jobs_jobs1_idx` (`job_id` ASC),
-  INDEX `fk_user_has_jobs_user_idx` (`user_id` ASC),
-  CONSTRAINT `fk_user_has_jobs_user`
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC),
+  INDEX `fk_job_user_idx` (`user_id` ASC),
+  CONSTRAINT `fk_job_user`
     FOREIGN KEY (`user_id`)
     REFERENCES `user` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_user_has_jobs_jobs1`
-    FOREIGN KEY (`job_id`)
-    REFERENCES `job` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -91,7 +76,7 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `personalsitedb`;
-INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`) VALUES (1, 'MaceDuwin', '$2a$10$zsmT3NAJt4CiWpTG8qUVF.8dN3ViL0AOX9td39YWKlNG/eRCxFXZG', 'Mace', 'Gibson', 'mace_gibson@yahoo.com');
+INSERT INTO `user` (`id`, `username`, `password`, `first_name`, `last_name`, `email`, `role`, `enabled`) VALUES (1, 'MaceDuwin', '$2a$10$649a78IjSXuqGDTTUXHQbep/J6v6SODydE687Ak2PDHGvTxAZxUwq', 'Mace', 'Gibson', 'mace_gibson@yahoo.com', 'standard', 1);
 
 COMMIT;
 
@@ -101,17 +86,7 @@ COMMIT;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `personalsitedb`;
-INSERT INTO `job` (`id`, `company`, `title`, `first_name`, `last_name`, `email`, `phone_number`, `description`, `technologies`) VALUES (1, 'Flexion', 'Recruiting Manager', 'Chris', 'Giese', 'cgiese@flexion.us', '6082058868', '90-Day Internship Program with Flexion.  This starts early May.', 'TBD');
-
-COMMIT;
-
-
--- -----------------------------------------------------
--- Data for table `user_has_job`
--- -----------------------------------------------------
-START TRANSACTION;
-USE `personalsitedb`;
-INSERT INTO `user_has_job` (`user_id`, `job_id`) VALUES (1, 1);
+INSERT INTO `job` (`id`, `company`, `title`, `first_name`, `last_name`, `email`, `phone_number`, `description`, `technologies`, `user_id`) VALUES (1, 'Flexion', 'Recruiting Manager', 'Chris', 'Giese', 'cgiese@flexion.us', '6082058868', '90-Day Internship Program with Flexion.  This starts early May.', 'TBD', 1);
 
 COMMIT;
 

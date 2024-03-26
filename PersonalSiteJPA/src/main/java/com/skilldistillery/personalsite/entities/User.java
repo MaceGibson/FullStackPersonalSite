@@ -8,43 +8,42 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class User {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	
+
 	private String username;
-	
+
 	private String password;
-	
+
 	@Column(name = "first_name")
 	private String firstName;
-	
+
 	@Column(name = "last_name")
 	private String lastName;
-	
+
 	private String email;
 	
-	@ManyToMany
-    @JoinTable(name="user_has_job",
-        joinColumns=@JoinColumn(name="user_id"),
-        inverseJoinColumns=@JoinColumn(name="job_id"))
-    private List<Job> jobs;
+	private boolean enabled;
 	
-	//Methods
-	
+	private String role;
+
+	@OneToMany(mappedBy = "user")
+	private List<Job> jobs;
+
+	// Methods
+
 	public User() {
 		super();
 	}
 
 	public User(int id, String username, String password, String firstName, String lastName, String email,
-			List<Job> jobs) {
+			boolean enabled, String role, List<Job> jobs) {
 		super();
 		this.id = id;
 		this.username = username;
@@ -52,6 +51,8 @@ public class User {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.email = email;
+		this.enabled = enabled;
+		this.role = role;
 		this.jobs = jobs;
 	}
 
@@ -109,6 +110,22 @@ public class User {
 
 	public void setJobs(List<Job> jobs) {
 		this.jobs = jobs;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	@Override
