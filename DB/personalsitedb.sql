@@ -33,11 +33,11 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `jobs`
+-- Table `job`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `jobs` ;
+DROP TABLE IF EXISTS `job` ;
 
-CREATE TABLE IF NOT EXISTS `jobs` (
+CREATE TABLE IF NOT EXISTS `job` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `company` VARCHAR(400) NULL,
   `title` VARCHAR(400) NULL,
@@ -53,15 +53,15 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `user_has_jobs`
+-- Table `user_has_job`
 -- -----------------------------------------------------
-DROP TABLE IF EXISTS `user_has_jobs` ;
+DROP TABLE IF EXISTS `user_has_job` ;
 
-CREATE TABLE IF NOT EXISTS `user_has_jobs` (
+CREATE TABLE IF NOT EXISTS `user_has_job` (
   `user_id` INT NOT NULL,
-  `jobs_id` INT NOT NULL,
-  PRIMARY KEY (`user_id`, `jobs_id`),
-  INDEX `fk_user_has_jobs_jobs1_idx` (`jobs_id` ASC),
+  `job_id` INT NOT NULL,
+  PRIMARY KEY (`user_id`, `job_id`),
+  INDEX `fk_user_has_jobs_jobs1_idx` (`job_id` ASC),
   INDEX `fk_user_has_jobs_user_idx` (`user_id` ASC),
   CONSTRAINT `fk_user_has_jobs_user`
     FOREIGN KEY (`user_id`)
@@ -69,8 +69,8 @@ CREATE TABLE IF NOT EXISTS `user_has_jobs` (
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_user_has_jobs_jobs1`
-    FOREIGN KEY (`jobs_id`)
-    REFERENCES `jobs` (`id`)
+    FOREIGN KEY (`job_id`)
+    REFERENCES `job` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -97,21 +97,21 @@ COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `jobs`
+-- Data for table `job`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `personalsitedb`;
-INSERT INTO `jobs` (`id`, `company`, `title`, `first_name`, `last_name`, `email`, `phone_number`, `description`, `technologies`) VALUES (1, 'Flexion', 'Recruiting Manager', 'Chris', 'Giese', 'cgiese@flexion.us', '6082058868', '90-Day Internship Program with Flexion.  This starts early May.', 'TBD');
+INSERT INTO `job` (`id`, `company`, `title`, `first_name`, `last_name`, `email`, `phone_number`, `description`, `technologies`) VALUES (1, 'Flexion', 'Recruiting Manager', 'Chris', 'Giese', 'cgiese@flexion.us', '6082058868', '90-Day Internship Program with Flexion.  This starts early May.', 'TBD');
 
 COMMIT;
 
 
 -- -----------------------------------------------------
--- Data for table `user_has_jobs`
+-- Data for table `user_has_job`
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `personalsitedb`;
-INSERT INTO `user_has_jobs` (`user_id`, `jobs_id`) VALUES (1, 1);
+INSERT INTO `user_has_job` (`user_id`, `job_id`) VALUES (1, 1);
 
 COMMIT;
 
