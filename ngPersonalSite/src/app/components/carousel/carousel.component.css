@@ -1,0 +1,6 @@
+img {
+  height: 400px; /* or the height according to your wireframe */
+  width: 100%; /* this will make image width responsive */
+  object-fit: cover; /* this will cover the area of the element without stretching the image */
+  object-position: center; /* align the image nicely in the frame */
+}

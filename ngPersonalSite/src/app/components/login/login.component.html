@@ -1,0 +1,14 @@
+<div class="wrapper">
+  <h2>Login</h2>
+  <form action="#">
+    <div class="input-box">
+      <input type="text" class="form-control" id="username" name="username" [(ngModel)]="loginUser.username" required>
+    </div>
+    <div class="input-box">
+      <input type="password" class="form-control" id="password" name="password" [(ngModel)]="loginUser.password" required>
+    </div>
+    <div class="input-box button">
+      <button type="Submit" value="Login" class="btn btn-primary" (click)="login(loginUser)">Login</button>
+    </div>
+  </form>
+</div>

@@ -1,0 +1,13 @@
+/* contact-section.component.css */
+.footer {
+  background-color: #f8f9fa; /* Your choice of footer background */
+}
+
+.btn-social {
+  font-size: 1.5rem; /* Larger icons for social buttons */
+  color: #495057; /* A neutral color for the icons */
+}
+
+.btn-social:hover {
+  color: #0056b3; /* Change as needed for hover effect */
+}

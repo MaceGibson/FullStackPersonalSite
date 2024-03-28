@@ -1,1 +1,8 @@
-<p>carousel works!</p>
+<!-- carousel.component.html -->
+<ngb-carousel [interval]="3000" [pauseOnHover]="false">
+  <ng-template ngbSlide *ngFor="let img of images; let i = index">
+    <div class="picsum-img-wrapper">
+      <img [src]="img" alt="Random first slide">
+    </div>
+  </ng-template>
+</ngb-carousel>
