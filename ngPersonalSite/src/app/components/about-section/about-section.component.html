@@ -1,0 +1,42 @@
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-md-4">
+      <img src="assets/profile.jpg" class="img-fluid rounded-circle" alt="Mace Gibson">
+    </div>
+    <div class="col-md-8">
+      <h2>Mace Gibson</h2>
+      <p>Full-Stack Java Developer Bootcamp Graduate | USMC Veteran</p>
+      <p>I am a USMC Veteran and software developer with a strong background in both technical and software security support. With a Bachelor's degree in Science and specialized training in full-stack Java development, I am eager to take on new challenges and build solutions that make an impact.</p>
+
+      <ul ngbNav #nav="ngbNav" class="nav-tabs">
+        <li [ngbNavItem]="2">
+          <a ngbNavLink>Key Projects</a>
+          <ng-template ngbNavContent>
+            <div class="row">
+              <div class="col-12 col-md-6 col-lg-3 mb-4" *ngFor="let project of projects">
+                <app-project-tile [thumbnail]="project.thumbnail" [title]="project.title" [description]="project.description" [technologies]="project.technologies"></app-project-tile>
+              </div>
+            </div>
+          </ng-template>
+        </li>
+        <li [ngbNavItem]="1">
+          <a ngbNavLink>Core Technologies</a>
+          <ng-template ngbNavContent>
+            <ul class="list-inline">
+              <li class="list-inline-item">Java</li>
+              <li class="list-inline-item">Angular</li>
+              <li class="list-inline-item">Spring Boot</li>
+              <li class="list-inline-item">REST APIs</li>
+              <li class="list-inline-item">SQL</li>
+              <li class="list-inline-item">JavaScript</li>
+              <!-- Add more technologies as list items -->
+            </ul>
+          </ng-template>
+        </li>
+
+      </ul>
+
+      <div [ngbNavOutlet]="nav" class="mt-3"></div>
+    </div>
+  </div>
+</div>

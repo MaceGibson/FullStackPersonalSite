@@ -1,0 +1,11 @@
+<!-- project-tile.component.html -->
+<div class="card">
+  <img [src]="thumbnail" class="card-img-top" alt="{{ title }}">
+  <div class="card-body">
+    <h5 class="card-title">{{ title }}</h5>
+    <p class="card-text">{{ description }}</p>
+    <div>
+      <span class="badge bg-primary me-1" *ngFor="let tech of technologies">{{ tech }}</span>
+    </div>
+  </div>
+</div>
