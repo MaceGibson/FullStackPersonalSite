@@ -1,0 +1,6 @@
+/* Custom CSS for project thumbnails */
+.project-thumbnail {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  object-fit: cover; /* This will cover the area without stretching the image */
+}
