@@ -17,25 +17,29 @@ export class AboutSectionComponent {
       thumbnail: 'assets/lessontracker.jpg',
       title: 'LessonTracker',
       description: 'Application to track lessons that need reviewing.',
-      technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile']
+      technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile'],
+      url: 'http://3.13.43.122:8080/BootLessonTracker'
     },
     {
        thumbnail: 'assets/whatareyoudoing.jpg',
        title: 'WhatAreYouDoing',
        description: 'Application to track a user list of things to accomplish or remember.',
-       technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile']
+       technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile'],
+       url: 'http://3.13.43.122:8080/WhatAreYouDoing'
     },
     {
       thumbnail: 'assets/ratemystudent.jpg',
       title: 'RateMyStudent',
       description: 'A site where teachers can review students.',
-      technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile']
+      technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile'],
+      url: 'http://3.13.43.122:8080/BootRateMyStudent'
     },
     {
       thumbnail: 'assets/dreamscape.jpg',
       title: 'Dreamscape',
       description: 'Application where user can create a visionboard.',
-      technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile']
+      technologies: ['Java', 'Spring Boot', 'Spring Data', 'SQL', 'REST', 'DOM', 'AJAX', 'XHR', 'JSON', 'Javascript', 'Typescript', 'Angular',  'HTML', 'Bootstrap', 'Figma', 'Agile'],
+      url: 'http://3.13.43.122:8080/Dreamscape'
     }
   ];
 
