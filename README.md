@@ -1,7 +1,7 @@
 # Full-Stack Personal Site
 
 ## URL
-Please feel free to visit my site [HERE] (http://3.13.43.122:8080/PersonalSite/#/home)!
+Please feel free to visit my site [HERE](http://3.13.43.122:8080/PersonalSite/#/home)!
 
 ## Description
 This personal site is a full-stack application that features a job request functionality, allowing potential employers and clients to reach out with opportunities. Designed with a focus on ease of communication, the site showcases a professional portfolio while providing a platform for users to submit job inquiries directly. The backend is crafted using Spring Boot to handle RESTful requests, and the frontend is developed with Angular for a seamless user experience.
