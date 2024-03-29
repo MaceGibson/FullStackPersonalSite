@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, catchError, throwError } from 'rxjs';
 import { Job } from '../models/job';
 
@@ -13,8 +13,12 @@ export class JobService {
   constructor(private http: HttpClient) { }
 
   public createJob(job: Job): Observable<Job> {
-    // Use the /create endpoint for creating a job
-    return this.http.post<Job>(`${this.url}/create`, job, this.getHttpOptions()).pipe(
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this.http.post<Job>(`${this.url}/create`, job, httpOptions).pipe(
       catchError((err) => this.handleError(err))
     );
   }

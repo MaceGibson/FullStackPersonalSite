@@ -4,6 +4,7 @@ import { Job } from '../../models/job';
 import { JobService } from '../../services/job.service';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 declare var bootstrap: any;
 
@@ -28,7 +29,7 @@ export class JobFormComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  constructor(private fb: FormBuilder, private jobService: JobService, private router: Router) {
+  constructor(private fb: FormBuilder, private jobService: JobService, private router: Router, public activeModal: NgbActiveModal) {
   }
 
   onSubmit() {
@@ -37,7 +38,7 @@ export class JobFormComponent implements OnInit {
       this.jobService.createJob(newJob).subscribe({
         next: (job) => {
           this.showSuccessToast();
-          setTimeout(() => this.router.navigate(['/']), 2000); // Navigate after 2 seconds
+          this.activeModal.close(); // Close the modal after successful submission
         },
         error: (err) => {
           console.error('Job creation failed:', err);

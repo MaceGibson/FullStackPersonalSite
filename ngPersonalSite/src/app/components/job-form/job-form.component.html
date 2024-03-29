@@ -1,52 +1,62 @@
-<form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="job-form">
-  <div class="form-group">
-    <label for="company">Company</label>
-    <input formControlName="company" id="company" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="title">Title</label>
-    <input formControlName="title" id="title" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="firstName">First Name</label>
-    <input formControlName="firstName" id="firstName" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="lastName">Last Name</label>
-    <input formControlName="lastName" id="lastName" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input formControlName="email" id="email" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="phoneNumber">Phone Number</label>
-    <input formControlName="phoneNumber" id="phoneNumber" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <input formControlName="description" id="description" class="form-control" type="text" required>
-  </div>
-  <div class="form-group">
-    <label for="technologies">Technologies</label>
-    <input formControlName="technologies" id="technologies" class="form-control" type="text" required>
-  </div>
-  <!-- Add form fields for each property similar to above -->
-  <div class="form-actions">
-    <button type="submit" class="btn btn-success" [disabled]="!jobForm.valid">Submit</button>
-  </div>
-</form>
-<!-- job-form.component.html -->
-<div aria-live="polite" aria-atomic="true" class="position-relative">
-  <!-- Center it at the bottom of the screen -->
-  <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
-    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-      <div class="toast-header">
-        <strong class="me-auto">Notification</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
-      </div>
-      <div class="toast-body">
-        Request Sent!
+<div class="modal-header">
+  <h4 class="modal-title">Job Details</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form [formGroup]="jobForm" (ngSubmit)="onSubmit()" class="job-form">
+    <div class="form-group">
+      <label for="company">Company</label>
+      <input formControlName="company" id="company" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="title">Title</label>
+      <input formControlName="title" id="title" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="firstName">First Name</label>
+      <input formControlName="firstName" id="firstName" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="lastName">Last Name</label>
+      <input formControlName="lastName" id="lastName" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input formControlName="email" id="email" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="phoneNumber">Phone Number</label>
+      <input formControlName="phoneNumber" id="phoneNumber" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input formControlName="description" id="description" class="form-control" type="text" required>
+    </div>
+    <div class="form-group">
+      <label for="technologies">Technologies</label>
+      <input formControlName="technologies" id="technologies" class="form-control" type="text" required>
+    </div>
+    <!-- Add form fields for each property similar to above -->
+    <div class="form-actions">
+      <button type="submit" class="btn btn-success" [disabled]="!jobForm.valid">Submit</button>
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <!-- job-form.component.html -->
+  <div aria-live="polite" aria-atomic="true" class="position-relative">
+    <!-- Center it at the bottom of the screen -->
+    <div class="toast-container position-fixed bottom-0 start-50 translate-middle-x p-3">
+      <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="toast-header">
+          <strong class="me-auto">Notification</strong>
+          <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body">
+          Request Sent!
+        </div>
       </div>
     </div>
   </div>

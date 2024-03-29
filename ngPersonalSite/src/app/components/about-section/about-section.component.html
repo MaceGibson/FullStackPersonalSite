@@ -23,7 +23,7 @@
               <tbody>
                 <tr *ngFor="let project of projects">
                   <td><img [src]="project.thumbnail" class="img-thumbnail project-thumbnail" alt="{{ project.title }}"></td>
-                  <td>{{ project.title }}</td>
+                  <td><a href="{{ project.url }}">{{ project.title }}</a></td>
                   <td>{{ project.description }}</td>
                 </tr>
               </tbody>
