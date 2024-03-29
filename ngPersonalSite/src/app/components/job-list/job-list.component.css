@@ -1,0 +1,15 @@
+/* job-list.component.css */
+.table-hover tbody tr:hover {
+  background-color: #f5f5f5; /* Soft grey for hover */
+}
+
+/* Customize the table header color */
+.table-dark {
+  background-color: #343a40; /* Slightly darker than standard Bootstrap's dark theme */
+}
+
+/* Customize the table background */
+.table {
+  background-color: #e9ecef; /* Soft grey for the table */
+}
+

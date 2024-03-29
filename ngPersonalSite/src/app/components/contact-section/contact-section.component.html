@@ -16,12 +16,18 @@
 
       <!-- Contact Me Button -->
       <div class="col-md-4 text-center">
-        <button routerLink="/job-form" class="btn btn-primary">Contact Me</button>
+        <button class = "btn btn-primary" [routerLink]="['/job-form']">Contact Me</button>
       </div>
 
       <!-- Login Button -->
       <div class="col-md-4 text-md-end text-center">
-        <button routerLink="/login" class="btn btn-secondary">Login</button>
+        <ng-container *ngIf="!isLoggedIn(); else loggedOut">
+          <button *ngIf="!showLoginForm" class="btn btn-secondary" (click)="toggleLoginForm(true)">Login</button>
+          <app-login *ngIf="showLoginForm" (close)="toggleLoginForm(false)" class="login-inline"></app-login>
+        </ng-container>
+        <ng-template #loggedOut>
+          <app-logout></app-logout>
+        </ng-template>
       </div>
     </div>
   </div>

@@ -5,6 +5,8 @@ import { LogoutComponent } from './components/logout/logout.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { JobFormComponent } from './components/job-form/job-form.component';
+import { JobListComponent } from './components/job-list/job-list.component';
+import { JobDetailComponent } from './components/job-detail/job-detail.component';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -13,5 +15,7 @@ export const routes: Routes = [
   { path: 'logout', component: LogoutComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'job-form', component: JobFormComponent },
+  { path: 'job-list', component: JobListComponent },
+  { path: 'jobs/:id', component: JobDetailComponent },
   { path: '**', component: NotFoundComponent }
 ];

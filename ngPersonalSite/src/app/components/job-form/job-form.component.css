@@ -1,0 +1,17 @@
+.toast-container {
+  z-index: 1050; /* Ensure the toast is above other elements */
+}
+
+.job-form {
+  max-width: 600px;
+  margin: auto;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-actions {
+  margin-top: 1rem;
+  text-align: right;
+}

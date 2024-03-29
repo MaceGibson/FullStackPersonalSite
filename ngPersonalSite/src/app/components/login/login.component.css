@@ -1,0 +1,18 @@
+/* login.component.css */
+.login-inline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.login-inline input[type="text"],
+.login-inline input[type="password"] {
+  margin-right: 5px; /* Spacing between input fields and button */
+  flex-grow: 0; /* Prevent input fields from growing */
+  width: 140px; /* Adjust width as necessary */
+}
+
+.login-inline button {
+  flex-grow: 0; /* Prevent button from growing */
+}

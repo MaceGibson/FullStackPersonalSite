@@ -1,1 +1,23 @@
-<p>job-list works!</p>
+<!-- job-list.component.html -->
+<table class="table table-hover">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col">Company</th>
+      <th scope="col">Title</th>
+      <th scope="col">Description</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let job of jobs">
+      <td>{{ job.company }}</td>
+      <td>{{ job.title }}</td>
+      <td>{{ job.description }}</td>
+      <td>
+        <!-- Use Bootstrap's buttons for actions -->
+        <button type="button" class="btn btn-info btn-sm" (click)="onViewDetails(job, $event)">Details</button>
+        <button type="button" class="btn btn-danger btn-sm" (click)="onDelete(job.id)">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

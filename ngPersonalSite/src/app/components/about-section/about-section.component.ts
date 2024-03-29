@@ -1,13 +1,12 @@
 import { Component } from '@angular/core';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ProjectTileComponent } from '../project-tile/project-tile.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-about-section',
   standalone: true,
-  imports: [NgbModule, ProjectTileComponent, FormsModule, CommonModule],
+  imports: [NgbModule, FormsModule, CommonModule],
   templateUrl: './about-section.component.html',
   styleUrls: ['./about-section.component.css']
 })

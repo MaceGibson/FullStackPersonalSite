@@ -1,14 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { User } from '../../models/user';
 import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [FormsModule, RouterLink],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'
 })
@@ -23,7 +22,8 @@ export class LoginComponent {
       console.log('Login attempt:', this.loginUser);
       this.authService.login(user.username, user.password).subscribe({
         next: (loggedInUser) => {
-          this.router.navigateByUrl('/visionboard');
+          this.router.navigateByUrl('/profile');
+          this.close.emit();
         },
         error: (failedLogin) => {
           console.error('Login failed.');
